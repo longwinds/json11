@@ -32,8 +32,13 @@ int main(void)
 	std::cout << "type: " << json["type"].string_value() << "\n";
 	std::cout << "para: " << json["para"].string_value() << "\n";
 
-
-   
+	const Json obj = Json::object({
+		{"type","cmd"},
+		{"para","call_hungup"},
+	});
+   	const auto json2 = Json::parse(obj.dump(), err);
+	std::cout << "type: " << json2["type"].string_value() << "\n";
+	std::cout << "para: " << json2["para"].string_value() << "\n";
 }
 
 
